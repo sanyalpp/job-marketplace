@@ -1,0 +1,32 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="acPersistenceUnit"
+		transaction-type="RESOURCE_LOCAL">
+		<description>AC Persistence Unit</description>
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<class>com.generic.job.marketplace.entity.Person</class>
+		<class>com.generic.job.marketplace.entity.Project</class>
+	    <class>com.generic.job.marketplace.entity.Bid</class>
+	    <class>com.generic.job.marketplace.entity.WinningBid</class>
+ 	    <class>com.generic.job.marketplace.entity.LowestBid</class> 
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="openjpa.jdbc.SchemaFactory" value="native(ForeignKeys=true)" />
+			<property name="openjpa.Log" value="slf4j" />
+			<property name="openjpa.ConnectionFactoryProperties"
+				value="PrintParameters=true, PrettyPrint=true, PrettyPrintLineLength=72" />
+			<property name="openjpa.DynamicEnhancementAgent" value="false" />
+			<property name="openjpa.jdbc.Schema" value="solstice" />
+			<property name="javax.persistence.sharedCache.mode" value="ENABLE_SELECTIVE" />
+			<property name="openjpa.DataCache" value="true" />
+			<property name="openjpa.LockTimeout" value="0" />
+			<!-- JPA SQL query debug logging -->
+			<property name="openjpa.Log" value="DefaultLevel=WARN, Runtime=INFO, 
+				Tool=INFO, SQL=TRACE"/> <property name="openjpa.ConnectionFactoryProperties" 
+				value="PrintParameters=true" /> 
+		</properties>
+	</persistence-unit>
+</persistence>

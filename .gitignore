@@ -1,0 +1,15 @@
+*.class
+# Package Files #
+*.jar
+*.zip
+
+*.iml
+.idea
+.classpath
+.project
+.DS_Store
+.settings
+
+#Test files
+target/
+bin/
